@@ -469,7 +469,15 @@
             const interestSelect = document.getElementById('interest');
             const submitBtn = document.getElementById('submit-btn');
             const formSubjectInput = document.getElementById('form-subject');
+            const formElement = document.getElementById('contact-form'); // Reference to the form
 
+            // --- Form Reset Logic (Added) ---
+            // Force a reset of the form on every page load to clear browser autofill/history.
+            if (formElement) {
+                formElement.reset();
+            }
+            // ---------------------------------
+            
             // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -545,7 +553,6 @@
             calculateMortgage();
             
             // --- Form Submission Success Handling ---
-            const formElement = document.getElementById('contact-form');
             const successMessageDiv = document.getElementById('form-success-message');
             
             // Set the 'redirect' value dynamically to the current URL plus a parameter
@@ -597,6 +604,7 @@
                 }
                 
                 // Only change if a specific anchor was hit
+                // This ensures that the anchor overrides the default reset if the user clicks a CTA
                 if (selectedValue) {
                     interestSelect.value = selectedValue;
                     submitBtn.textContent = buttonText;
