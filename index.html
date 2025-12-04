@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WiCalculate - NZ Financial Advisory & Home Loans</title>
-
+    
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
@@ -15,14 +15,14 @@
             background-color: #FFFFFF; /* White Background */
             color: #1F2937; /* Dark Gray Text */
         }
-
+        
         /* Gold/Amber Accents */
         .gold-text {
             color: #B8860B; /* Darker Gold for better contrast on white */
         }
-
+        
         .gold-light-text {
-            color: #FFD700; /* Pure Gold for dark backgrounds */
+             color: #FFD700; /* Pure Gold for dark backgrounds */
         }
 
         /* Custom utility for subtle gold gradient button */
@@ -50,11 +50,11 @@
             background-color: #1A1A1A; /* Deep Charcoal */
             color: #F9FAFB; /* Light text on dark background */
             /* Subtle geometric gold pattern using background gradients */
-            background-image: linear-gradient(0deg, transparent 99%, #B8860B 100%),
-            linear-gradient(90deg, transparent 99%, #B8860B 100%);
+            background-image: linear-gradient(0deg, transparent 99%, #B8860B 100%), 
+                              linear-gradient(90deg, transparent 99%, #B8860B 100%);
             background-size: 20px 20px;
         }
-
+        
         .shadow-gold-sm {
             box-shadow: 0 2px 4px rgba(184, 134, 11, 0.2);
         }
@@ -63,7 +63,7 @@
         .hero-title-light {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
-
+        
         /* Style for the list of cover benefits */
         .cover-list li {
             position: relative;
@@ -71,7 +71,7 @@
             margin-bottom: 0.5rem;
             list-style: none; /* Remove default list style */
         }
-
+        
         .cover-list li::before {
             content: '✓'; /* Checkmark icon */
             position: absolute;
@@ -79,7 +79,7 @@
             color: #B8860B; /* Gold checkmark */
             font-weight: bold;
         }
-
+        
         /* Urgent warning box for pre-existing conditions (Removed from content, but keeping class just in case) */
         .warning-box {
             background-color: #FEF3C7; /* Light yellow */
@@ -90,541 +90,541 @@
 </head>
 <body>
 
-<!-- Sticky Navigation (White Background) -->
-<nav class="bg-white shadow-lg shadow-gray-200 sticky top-0 z-50 border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-            <!-- Logo Area - UPDATED WITH MAJIN BUU LOGO -->
-            <a href="#home" class="flex-shrink-0 flex items-center space-x-3">
-                <!--
-                    Replaced the financial services logo with the user's requested image (IMG_1459.JPG - Majin Buu).
-                    Increased size to h-16 w-16 for better visibility.
-                -->
-                <img
-                        src="test.svg"
-                        alt="WiCalculate"
-                        onerror="this.onerror=null; this.src='https://placehold.co/64x64/B8860B/FFFFFF?text=BUU';"
+    <!-- Sticky Navigation (White Background) -->
+    <nav class="bg-white shadow-lg shadow-gray-200 sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area - UPDATED WITH MAJIN BUU LOGO -->
+                <a href="#home" class="flex-shrink-0 flex items-center space-x-3">
+                    <!-- 
+                        Replaced the financial services logo with the user's requested image (IMG_1459.JPG - Majin Buu).
+                        Increased size to h-16 w-16 for better visibility.
+                    -->
+                    <img 
+                        src="IMG_1459.JPG" 
+                        alt="Majin Buu Logo - WiCalculate" 
+                        onerror="this.onerror=null; this.src='https://placehold.co/64x64/B8860B/FFFFFF?text=BUU';" 
                         class="h-16 w-16 rounded-lg object-cover shadow-md"
-                >
+                    >
 
-                <!-- Text Branding (Kept for visual identity) -->
-                <div class="flex flex-col leading-none">
-                    <span class="text-2xl font-black text-gray-900">WICALCULATE</span>
-                    <span class="text-xs font-medium gold-text tracking-widest uppercase">Financial Advisory</span>
-                </div>
-            </a>
-
-            <!-- Navigation Links (Desktop) -->
-            <div class="hidden sm:flex space-x-8 text-sm font-medium">
-                <a href="#calculator" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Mortgage</a>
-                <a href="#health-insurance" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Health Cover</a>
-                <a href="#services" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Advisory</a>
-                <a href="#contact" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Connect</a>
-            </div>
-
-            <!-- Contact CTA Button (Desktop - Gold Gradient) -->
-            <a href="#contact" class="hidden sm:block px-6 py-2 btn-gold-gradient rounded-full text-sm shadow-gold-sm">
-                Book a Free Consult
-            </a>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="sm:hidden p-2 rounded-md text-gray-700 hover:gold-text focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-[#B8860B]" aria-expanded="false">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </div>
-    </div>
-
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="sm:hidden hidden bg-white border-t border-gray-100">
-        <div class="pt-2 pb-3 space-y-1">
-            <a href="#calculator" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Mortgage</a>
-            <a href="#health-insurance" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Health Cover</a>
-            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Advisory</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Connect</a>
-        </div>
-    </div>
-</nav>
-
-<!-- 1. Hero Section (Clean White) -->
-<section id="home" class="py-24 md:py-40 text-center relative overflow-hidden bg-white">
-    <div class="relative max-w-5xl mx-auto px-4 z-10">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight hero-title-light">
-            <span class="block text-gray-900">Expert NZ Finance.</span>
-            <span class="block gold-text mt-2">Your Path to Wealth.</span>
-        </h1>
-        <p class="text-xl md:text-2xl font-light mb-10 text-gray-600 max-w-3xl mx-auto">
-            Secure your future with unbiased advice on Home Loans, Refinancing, and Insurance across New Zealand.
-        </p>
-        <a href="#contact" class="px-10 py-4 btn-gold-gradient rounded-full text-lg shadow-lg shadow-yellow-900/40">
-            Start Your Journey Today
-        </a>
-    </div>
-</section>
-
-<!-- 2. Mortgage Calculator Section (The Black/Gold Break-up) -->
-<section id="calculator" class="calculator-bg-pattern py-16 md:py-24 border-y border-[#B8860B]">
-    <div class="max-w-6xl mx-auto px-4">
-        <div class="text-center mb-12">
-            <span class="gold-light-text text-lg font-semibold uppercase tracking-widest">Calculators</span>
-            <h2 class="text-4xl font-bold text-white mb-3">What Could Your Repayments Look Like?</h2>
-        </div>
-
-        <div class="bg-[#2e2e2e] p-8 rounded-2xl shadow-2xl shadow-black/80 grid grid-cols-1 lg:grid-cols-3 gap-10">
-            <!-- Calculator Input Column (Left) -->
-            <div class="lg:col-span-2 space-y-6">
-                <!-- Home Price & Deposit Input -->
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                    <div class="w-full">
-                        <label for="loanAmount" class="block text-sm font-medium text-gray-400 mb-2">1. Price of the Home (NZD)</label>
-                        <input type="number" id="loanAmount" value="700000" min="10000" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Price of the Home in NZD">
-                        <p class="text-xs text-gray-500 mt-1">The total amount you expect to pay for the property.</p>
+                    <!-- Text Branding (Kept for visual identity) -->
+                    <div class="flex flex-col leading-none">
+                        <span class="text-2xl font-black text-gray-900">WICALCULATE</span>
+                        <span class="text-xs font-medium gold-text tracking-widest uppercase">Financial Advisory</span>
                     </div>
-                    <div class="w-full">
-                        <label for="depositAmount" class="block text-sm font-medium text-gray-400 mb-2">2. Cash You Pay Upfront (Deposit)</label>
-                        <input type="number" id="depositAmount" value="140000" min="0" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Cash Deposit Paid in NZD">
-                        <p class="text-xs text-gray-500 mt-1">The amount of your own money you use now.</p>
-                    </div>
+                </a>
+
+                <!-- Navigation Links (Desktop) -->
+                <div class="hidden sm:flex space-x-8 text-sm font-medium">
+                    <a href="#calculator" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Mortgage</a>
+                    <a href="#health-insurance" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Health Cover</a> 
+                    <a href="#services" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Advisory</a>
+                    <a href="#contact" class="text-gray-700 hover:gold-text transition duration-150 p-2 rounded-lg">Connect</a>
                 </div>
 
-                <!-- Rate and Term Inputs -->
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                    <div class="w-full">
-                        <label for="annualInterestRate" class="block text-sm font-medium text-gray-400 mb-2">3. Bank's Interest Rate (%)</label>
-                        <input type="number" id="annualInterestRate" value="6.8" min="0.1" step="0.1" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Annual Interest Rate Percentage">
-                        <p class="text-xs text-gray-500 mt-1">The percentage the bank charges you to borrow money.</p>
-                    </div>
-                    <div class="w-full">
-                        <label for="loanTermYears" class="block text-sm font-medium text-gray-400 mb-2">4. Time to Repay Loan (Years)</label>
-                        <input type="number" id="loanTermYears" value="30" min="1" max="50" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Loan Term in Years">
-                        <p class="text-xs text-gray-500 mt-1">How many years you plan to take to pay off the loan.</p>
-                    </div>
-                </div>
+                <!-- Contact CTA Button (Desktop - Gold Gradient) -->
+                <a href="#contact" class="hidden sm:block px-6 py-2 btn-gold-gradient rounded-full text-sm shadow-gold-sm">
+                    Book a Free Consult
+                </a>
 
-                <button id="calculate-btn" class="w-full px-6 py-4 mt-4 btn-gold-gradient rounded-lg shadow-xl">
-                    Calculate Your Estimated Payment
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="sm:hidden p-2 rounded-md text-gray-700 hover:gold-text focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-[#B8860B]" aria-expanded="false">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
                 </button>
-
-                <p class="text-xs text-gray-500 pt-2 text-center">
-                    Note: The loan amount is calculated as (Home Price - Cash Deposit). This is an initial estimate only.
-                </p>
-            </div>
-
-            <!-- Results Column (Right - Gold Highlight) -->
-            <div class="bg-[#3A3A3A] p-6 rounded-xl space-y-5 border-l-4 border-[#FFD700]">
-                <h3 class="text-2xl font-extrabold gold-light-text border-b pb-3 mb-4 border-yellow-700">Key Outcomes</h3>
-
-                <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-300 font-medium">Actual Loan Amount Borrowed:</span>
-                    <span id="principal" class="text-xl font-bold text-white">NZD 0.00</span>
-                </div>
-
-                <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-300 font-medium">Estimated Monthly Payment:</span>
-                    <span id="monthlyPayment" class="text-3xl font-black gold-light-text">NZD 0.00</span>
-                </div>
-
-                <hr class="border-yellow-900">
-
-                <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-300 font-medium">Total Interest Paid to Bank:</span>
-                    <span id="totalInterest" class="text-lg font-semibold text-gray-200">NZD 0.00</span>
-                </div>
-
-                <div class="flex justify-between items-center">
-                    <span class="text-sm text-gray-300 font-medium">Total Cost of Loan (Principal + Interest):</span>
-                    <span id="totalCost" class="text-lg font-semibold text-gray-200">NZD 0.00</span>
-                </div>
             </div>
         </div>
 
-        <!-- Post-Calculation CTA for Mortgage Clients -->
-        <div id="mortgage-cta" class="mt-12 bg-[#3A3A3A] p-6 rounded-xl text-center shadow-2xl shadow-black/80">
-            <h3 class="text-2xl font-bold gold-light-text mb-2">Ready to Secure Your Rate?</h3>
-            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Your calculated payment is just the start. We access exclusive bank offers and structure your loan to save you thousands over the term.</p>
-            <a href="#contact-mortgage" class="px-8 py-3 btn-gold-gradient rounded-lg text-lg font-extrabold shadow-xl">
-                Get an Official Mortgage Pre-Approval
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="sm:hidden hidden bg-white border-t border-gray-100">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#calculator" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Mortgage</a>
+                <a href="#health-insurance" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Health Cover</a> 
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Advisory</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:gold-text hover:bg-gray-50">Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section (Clean White) -->
+    <section id="home" class="py-24 md:py-40 text-center relative overflow-hidden bg-white">
+        <div class="relative max-w-5xl mx-auto px-4 z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight hero-title-light">
+                <span class="block text-gray-900">Expert NZ Finance.</span>
+                <span class="block gold-text mt-2">Your Path to Wealth.</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-10 text-gray-600 max-w-3xl mx-auto">
+                Secure your future with unbiased advice on Home Loans, Refinancing, and Insurance across New Zealand.
+            </p>
+            <a href="#contact" class="px-10 py-4 btn-gold-gradient rounded-full text-lg shadow-lg shadow-yellow-900/40">
+                Start Your Journey Today
             </a>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 3. Health Insurance Section (New Page Content) -->
-<section id="health-insurance" class="py-16 md:py-24 max-w-6xl mx-auto px-4 bg-white border-b border-gray-200">
-    <div class="text-center mb-12">
-        <span class="gold-text text-lg font-semibold uppercase tracking-widest">Insurance Cover</span>
-        <h2 class="text-4xl font-bold text-gray-900 mb-3">
-            <span class="block">Private Health Insurance:</span>
-            <span class="gold-text">Protect Yourself from Waiting Lists.</span>
-        </h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-
-        <!-- Left Column: Problem & Urgency -->
-        <div class="space-y-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-3">The NZ Healthcare Trade-Off</h3>
-            <p class="text-gray-700 leading-relaxed">
-                In emergency situations, New Zealand health care is great, but when it comes to the non-urgent issues, you either go on a wait list or pay privately. When you have an issue that needs attention, neither of these options are appealing.
-            </p>
-
-            <!-- REMOVED: The Critical Warning Box regarding Pre-Existing Conditions -->
-            <!-- The original content for the warning box:
-            <div class="warning-box p-4 rounded-lg shadow-md mt-6">
-                <h4 class="font-black text-lg flex items-center mb-1">
-                    <svg class="w-6 h-6 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    CRITICAL WARNING: Pre-Existing Conditions
-                </h4>
-                <p class="text-sm">The earlier you start health insurance, the better. If you wait until something goes wrong, **it’s likely to be considered a pre-existing condition** and may be excluded from cover entirely.</p>
+    <!-- 2. Mortgage Calculator Section (The Black/Gold Break-up) -->
+    <section id="calculator" class="calculator-bg-pattern py-16 md:py-24 border-y border-[#B8860B]">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="gold-light-text text-lg font-semibold uppercase tracking-widest">Calculators</span>
+                <h2 class="text-4xl font-bold text-white mb-3">What Could Your Repayments Look Like?</h2>
             </div>
-            -->
 
-            <p class="text-gray-700 leading-relaxed pt-3">
-                Many providers let you build your own cover to ensure you only pay for what you truly need.
-            </p>
+            <div class="bg-[#2e2e2e] p-8 rounded-2xl shadow-2xl shadow-black/80 grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Calculator Input Column (Left) -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Home Price & Deposit Input -->
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div class="w-full">
+                            <label for="loanAmount" class="block text-sm font-medium text-gray-400 mb-2">1. Price of the Home (NZD)</label>
+                            <input type="number" id="loanAmount" value="700000" min="10000" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Price of the Home in NZD">
+                            <p class="text-xs text-gray-500 mt-1">The total amount you expect to pay for the property.</p>
+                        </div>
+                        <div class="w-full">
+                            <label for="depositAmount" class="block text-sm font-medium text-gray-400 mb-2">2. Cash You Pay Upfront (Deposit)</label>
+                            <input type="number" id="depositAmount" value="140000" min="0" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Cash Deposit Paid in NZD">
+                            <p class="text-xs text-gray-500 mt-1">The amount of your own money you use now.</p>
+                        </div>
+                    </div>
 
-            <a href="#contact-insurance" class="inline-block px-6 py-3 btn-gold-gradient rounded-lg text-base font-bold shadow-md">
-                Start My Free Cover Assessment
-            </a>
-        </div>
+                    <!-- Rate and Term Inputs -->
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <div class="w-full">
+                            <label for="annualInterestRate" class="block text-sm font-medium text-gray-400 mb-2">3. Bank's Interest Rate (%)</label>
+                            <input type="number" id="annualInterestRate" value="6.8" min="0.1" step="0.1" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Annual Interest Rate Percentage">
+                            <p class="text-xs text-gray-500 mt-1">The percentage the bank charges you to borrow money.</p>
+                        </div>
+                        <div class="w-full">
+                            <label for="loanTermYears" class="block text-sm font-medium text-gray-400 mb-2">4. Time to Repay Loan (Years)</label>
+                            <input type="number" id="loanTermYears" value="30" min="1" max="50" class="w-full px-4 py-3 border-2 border-[#FFD700]/30 rounded-lg focus:ring-[#FFD700] focus:border-[#FFD700] text-lg bg-gray-900 text-white" aria-label="Loan Term in Years">
+                            <p class="text-xs text-gray-500 mt-1">How many years you plan to take to pay off the loan.</p>
+                        </div>
+                    </div>
 
-        <!-- Right Column: Specific Benefits List -->
-        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-lg">
-            <h3 class="text-2xl font-bold gold-text mb-4 border-b border-gray-200 pb-3">Tailor-Made Coverage Options</h3>
-            <p class="text-gray-600 mb-6">Your policy can include specialized options such as:</p>
+                    <button id="calculate-btn" class="w-full px-6 py-4 mt-4 btn-gold-gradient rounded-lg shadow-xl">
+                        Calculate Your Estimated Payment
+                    </button>
+                    
+                    <p class="text-xs text-gray-500 pt-2 text-center">
+                        Note: The loan amount is calculated as (Home Price - Cash Deposit). This is an initial estimate only.
+                    </p>
+                </div>
 
-            <ul class="cover-list space-y-3 text-gray-700">
-                <li>Cover 100% of the costs</li>
-                <li>Non-Pharmac drug cover (drugs not funded by the public system)</li>
-                <li>Specialist and tests (faster diagnosis and treatment planning)</li>
-                <li>Surgical treatment (bypassing public waiting lists)</li>
-                <li>Non-surgical treatment</li>
-                <li>Before and after hospital costs (consultations, rehabilitation)</li>
-                <li>Medical tourism option (fly to another country for specialist treatment)</li>
-            </ul>
+                <!-- Results Column (Right - Gold Highlight) -->
+                <div class="bg-[#3A3A3A] p-6 rounded-xl space-y-5 border-l-4 border-[#FFD700]">
+                    <h3 class="text-2xl font-extrabold gold-light-text border-b pb-3 mb-4 border-yellow-700">Key Outcomes</h3>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-300 font-medium">Actual Loan Amount Borrowed:</span>
+                        <span id="principal" class="text-xl font-bold text-white">NZD 0.00</span>
+                    </div>
 
-            <div class="mt-8 pt-4 border-t border-gray-200">
-                <h4 class="text-xl font-bold text-gray-900 mb-3">Your Next Step is Simple:</h4>
-                <p class="text-gray-600 mb-4">We know which providers have the right cover for your specific needs, health history, and budget.</p>
-                <a href="#contact-insurance" class="w-full inline-block px-6 py-3 btn-gold-gradient rounded-lg text-center font-extrabold shadow-xl">
-                    Talk to a Health Cover Advisor Now &rarr;
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-300 font-medium">Estimated Monthly Payment:</span>
+                        <span id="monthlyPayment" class="text-3xl font-black gold-light-text">NZD 0.00</span>
+                    </div>
+
+                    <hr class="border-yellow-900">
+
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-300 font-medium">Total Interest Paid to Bank:</span>
+                        <span id="totalInterest" class="text-lg font-semibold text-gray-200">NZD 0.00</span>
+                    </div>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-300 font-medium">Total Cost of Loan (Principal + Interest):</span>
+                        <span id="totalCost" class="text-lg font-semibold text-gray-200">NZD 0.00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Post-Calculation CTA for Mortgage Clients -->
+            <div id="mortgage-cta" class="mt-12 bg-[#3A3A3A] p-6 rounded-xl text-center shadow-2xl shadow-black/80">
+                <h3 class="text-2xl font-bold gold-light-text mb-2">Ready to Secure Your Rate?</h3>
+                <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Your calculated payment is just the start. We access exclusive bank offers and structure your loan to save you thousands over the term.</p>
+                <a href="#contact-mortgage" class="px-8 py-3 btn-gold-gradient rounded-lg text-lg font-extrabold shadow-xl">
+                    Get an Official Mortgage Pre-Approval
                 </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 4. Advisory Services Section (White Background) -->
-<section id="services" class="py-16 md:py-24 max-w-6xl mx-auto px-4 bg-white border-b border-gray-200">
-    <div class="text-center mb-12">
-        <span class="gold-text text-lg font-semibold uppercase tracking-widest">Our Expertise</span>
-        <h2 class="text-4xl font-bold text-gray-900 mb-3">Integrated Financial Advisory</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">We provide a holistic view of your finances, ensuring you have the right solutions at every stage of life.</p>
-    </div>
-
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Service Card 1: Home Loans -->
-        <div class="card-light p-6 rounded-xl shadow-xl hover:shadow-gray-300 transition duration-300 border-t-4 border-[#B8860B]">
-            <!-- Icon (Home Icon) -->
-            <div class="text-4xl gold-text mb-3">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6m-6 0a1 1 0 00-1 1v3m10-3v3a1 1 0 001 1M9 21h6"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Home Loans & Refinancing</h3>
-            <p class="text-gray-600 text-sm">First home buyers, investment properties, and refinancing for better rates. We work with all major NZ banks and non-bank lenders.</p>
-            <a href="#contact-mortgage" class="mt-4 inline-block gold-text font-semibold text-sm hover:text-gray-900 transition duration-150">
-                Get My Best Rate &rarr;
-            </a>
+    <!-- 3. Health Insurance Section (New Page Content) -->
+    <section id="health-insurance" class="py-16 md:py-24 max-w-6xl mx-auto px-4 bg-white border-b border-gray-200">
+        <div class="text-center mb-12">
+            <span class="gold-text text-lg font-semibold uppercase tracking-widest">Insurance Cover</span>
+            <h2 class="text-4xl font-bold text-gray-900 mb-3">
+                <span class="block">Private Health Insurance:</span>
+                <span class="gold-text">Protect Yourself from Waiting Lists.</span>
+            </h2>
         </div>
 
-        <!-- Service Card 2: Personal Risk Insurance -->
-        <div class="card-light p-6 rounded-xl shadow-xl hover:shadow-gray-300 transition duration-300 border-t-4 border-[#B8860B]">
-            <!-- Icon (Shield Icon) -->
-            <div class="text-4xl gold-text mb-3">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.007 12.007 0 002 12c0 3.072 1.88 5.764 4.618 7.04A11.955 11.955 0 0112 21.056a11.955 11.955 0 015.382-1.996C20.12 17.764 22 15.072 22 12c0-1.898-.674-3.665-1.742-5.016z"></path></svg>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Left Column: Problem & Urgency -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">The NZ Healthcare Trade-Off</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    In emergency situations, New Zealand health care is great, but when it comes to the non-urgent issues, you either go on a wait list or pay privately. When you have an issue that needs attention, neither of these options are appealing.
+                </p>
+                
+                <!-- REMOVED: The Critical Warning Box regarding Pre-Existing Conditions -->
+                <!-- The original content for the warning box:
+                <div class="warning-box p-4 rounded-lg shadow-md mt-6">
+                    <h4 class="font-black text-lg flex items-center mb-1">
+                        <svg class="w-6 h-6 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        CRITICAL WARNING: Pre-Existing Conditions
+                    </h4>
+                    <p class="text-sm">The earlier you start health insurance, the better. If you wait until something goes wrong, **it’s likely to be considered a pre-existing condition** and may be excluded from cover entirely.</p>
+                </div>
+                -->
+
+                <p class="text-gray-700 leading-relaxed pt-3">
+                    Many providers let you build your own cover to ensure you only pay for what you truly need.
+                </p>
+                
+                <a href="#contact-insurance" class="inline-block px-6 py-3 btn-gold-gradient rounded-lg text-base font-bold shadow-md">
+                    Start My Free Cover Assessment
+                </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Personal Risk Insurance</h3>
-            <p class="text-gray-600 text-sm">Life, Trauma, Health, and Income Protection. We tailor a cover package to protect your income and lifestyle if the worst happens.</p>
-            <a href="#contact-insurance" class="mt-4 inline-block gold-text font-semibold text-sm hover:text-gray-900 transition duration-150">
-                See All Health Cover Options &rarr;
-            </a>
+
+            <!-- Right Column: Specific Benefits List -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-lg">
+                <h3 class="text-2xl font-bold gold-text mb-4 border-b border-gray-200 pb-3">Tailor-Made Coverage Options</h3>
+                <p class="text-gray-600 mb-6">Your policy can include specialized options such as:</p>
+                
+                <ul class="cover-list space-y-3 text-gray-700">
+                    <li>Cover 100% of the costs</li>
+                    <li>Non-Pharmac drug cover (drugs not funded by the public system)</li>
+                    <li>Specialist and tests (faster diagnosis and treatment planning)</li>
+                    <li>Surgical treatment (bypassing public waiting lists)</li>
+                    <li>Non-surgical treatment</li>
+                    <li>Before and after hospital costs (consultations, rehabilitation)</li>
+                    <li>Medical tourism option (fly to another country for specialist treatment)</li>
+                </ul>
+
+                <div class="mt-8 pt-4 border-t border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Your Next Step is Simple:</h4>
+                    <p class="text-gray-600 mb-4">We know which providers have the right cover for your specific needs, health history, and budget.</p>
+                    <a href="#contact-insurance" class="w-full inline-block px-6 py-3 btn-gold-gradient rounded-lg text-center font-extrabold shadow-xl">
+                        Talk to a Health Cover Advisor Now &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 4. Advisory Services Section (White Background) -->
+    <section id="services" class="py-16 md:py-24 max-w-6xl mx-auto px-4 bg-white border-b border-gray-200">
+        <div class="text-center mb-12">
+            <span class="gold-text text-lg font-semibold uppercase tracking-widest">Our Expertise</span>
+            <h2 class="text-4xl font-bold text-gray-900 mb-3">Integrated Financial Advisory</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">We provide a holistic view of your finances, ensuring you have the right solutions at every stage of life.</p>
         </div>
 
-        <!-- Service Card 3: KiwiSaver & Wealth -->
-        <div class="card-light p-6 rounded-xl shadow-xl hover:shadow-gray-300 transition duration-300 border-t-4 border-[#B8860B]">
-            <!-- Icon (Chart/Growth Icon) -->
-            <div class="text-4xl gold-text mb-3">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service Card 1: Home Loans -->
+            <div class="card-light p-6 rounded-xl shadow-xl hover:shadow-gray-300 transition duration-300 border-t-4 border-[#B8860B]">
+                <!-- Icon (Home Icon) -->
+                <div class="text-4xl gold-text mb-3">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6m-6 0a1 1 0 00-1 1v3m10-3v3a1 1 0 001 1M9 21h6"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Home Loans & Refinancing</h3>
+                <p class="text-gray-600 text-sm">First home buyers, investment properties, and refinancing for better rates. We work with all major NZ banks and non-bank lenders.</p>
+                <a href="#contact-mortgage" class="mt-4 inline-block gold-text font-semibold text-sm hover:text-gray-900 transition duration-150">
+                    Get My Best Rate &rarr;
+                </a>
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">KiwiSaver & Wealth Management</h3>
-            <p class="text-gray-600 text-sm">Ensure your KiwiSaver is performing. We provide guidance on fund selection and long-term investment strategies for optimal retirement savings.</p>
-            <a href="#contact-general" class="mt-4 inline-block gold-text font-semibold text-sm hover:text-gray-900 transition duration-150">
-                Optimise Your Fund &rarr;
-            </a>
+
+            <!-- Service Card 2: Personal Risk Insurance -->
+            <div class="card-light p-6 rounded-xl shadow-xl hover:shadow-gray-300 transition duration-300 border-t-4 border-[#B8860B]">
+                <!-- Icon (Shield Icon) -->
+                <div class="text-4xl gold-text mb-3">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.007 12.007 0 002 12c0 3.072 1.88 5.764 4.618 7.04A11.955 11.955 0 0112 21.056a11.955 11.955 0 015.382-1.996C20.12 17.764 22 15.072 22 12c0-1.898-.674-3.665-1.742-5.016z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Personal Risk Insurance</h3>
+                <p class="text-gray-600 text-sm">Life, Trauma, Health, and Income Protection. We tailor a cover package to protect your income and lifestyle if the worst happens.</p>
+                <a href="#contact-insurance" class="mt-4 inline-block gold-text font-semibold text-sm hover:text-gray-900 transition duration-150">
+                    See All Health Cover Options &rarr;
+                </a>
+            </div>
+
+            <!-- Service Card 3: KiwiSaver & Wealth -->
+            <div class="card-light p-6 rounded-xl shadow-xl hover:shadow-gray-300 transition duration-300 border-t-4 border-[#B8860B]">
+                <!-- Icon (Chart/Growth Icon) -->
+                <div class="text-4xl gold-text mb-3">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">KiwiSaver & Wealth Management</h3>
+                <p class="text-gray-600 text-sm">Ensure your KiwiSaver is performing. We provide guidance on fund selection and long-term investment strategies for optimal retirement savings.</p>
+                <a href="#contact-general" class="mt-4 inline-block gold-text font-semibold text-sm hover:text-gray-900 transition duration-150">
+                    Optimise Your Fund &rarr;
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 5. Contact Section & Call-to-Action (Light Gray Background) -->
-<section id="contact" class="py-16 md:py-24 max-w-full px-4 bg-gray-50 border-t border-b border-gray-200">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        <!-- Left Side: CTA Block -->
-        <div class="p-6">
-            <span class="gold-text text-lg font-semibold uppercase tracking-widest">Connect</span>
-            <h2 class="text-4xl font-bold text-gray-900 mb-4 mt-2">Ready to Talk Strategy?</h2>
-            <p class="text-gray-600 mb-6">Your financial goals are unique. Book a confidential, no-obligation consultation with our experienced NZ advisors today.</p>
+    <!-- 5. Contact Section & Call-to-Action (Light Gray Background) -->
+    <section id="contact" class="py-16 md:py-24 max-w-full px-4 bg-gray-50 border-t border-b border-gray-200">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Left Side: CTA Block -->
+            <div class="p-6">
+                <span class="gold-text text-lg font-semibold uppercase tracking-widest">Connect</span>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 mt-2">Ready to Talk Strategy?</h2>
+                <p class="text-gray-600 mb-6">Your financial goals are unique. Book a confidential, no-obligation consultation with our experienced NZ advisors today.</p>
 
-            <div class="space-y-3">
-                <p class="text-gray-700 flex items-center">
+                <div class="space-y-3">
+                    <p class="text-gray-700 flex items-center">
                         <span class="gold-text mr-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.717 21 3 14.283 3 6V5z"></path></svg>
                         </span>
-                    0800 WI-CALC (0800 942 252)
-                </p>
-                <p class="text-gray-700 flex items-center">
+                        0800 WI-CALC (0800 942 252)
+                    </p>
+                    <p class="text-gray-700 flex items-center">
                         <span class="gold-text mr-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.842 5.234a1 1 0 001.03-.002L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
                         </span>
-                    advice@wicalculate.co.nz
-                </p>
-            </div>
-        </div>
-
-        <!-- Right Side: Contact Form (New Qualified Fields) -->
-        <div id="contact-form-card" class="bg-white p-8 rounded-xl shadow-2xl shadow-gray-200/80 border border-gray-100">
-            <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Send an Inquiry</h3>
-
-            <!-- Success Message Display Area (Initially Hidden) -->
-            <div id="form-success-message" class="hidden bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-lg" role="alert">
-                <p class="font-bold">Success!</p>
-                <p>Your expert advisor will be in touch within 1 business day.</p>
+                        advice@wicalculate.co.nz
+                    </p>
+                </div>
             </div>
 
-            <!-- FORM SUBMISSION CONFIGURED FOR WEB3FORMS -->
-            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                <!-- REQUIRED: Access Key from Web3Forms -->
-                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
-                <input type="hidden" name="subject" id="form-subject" value="New Contact Inquiry from WiCalculate Website (White/Gold)">
-                <input type="hidden" name="redirect" value="[Your Current URL]?submitted=true">
-
-                <!-- OPTIMIZATION 4: Add lead qualification dropdown -->
-                <div>
-                    <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">I'm interested in...</label>
-                    <select id="interest" name="Primary Interest" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 shadow-sm">
-                        <option value="" disabled selected>Select your main area of interest</option>
-                        <option value="Mortgage / Home Loan">Mortgage / Home Loan (Refinancing or Buying)</option>
-                        <option value="Health / Risk Insurance">Health / Risk Insurance (Life, Health, Trauma)</option>
-                        <option value="KiwiSaver / Wealth">KiwiSaver / Wealth Management</option>
-                        <option value="General Inquiry">General Inquiry</option>
-                    </select>
+            <!-- Right Side: Contact Form (New Qualified Fields) -->
+            <div id="contact-form-card" class="bg-white p-8 rounded-xl shadow-2xl shadow-gray-200/80 border border-gray-100">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Send an Inquiry</h3>
+                
+                <!-- Success Message Display Area (Initially Hidden) -->
+                <div id="form-success-message" class="hidden bg-green-50 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded-lg" role="alert">
+                    <p class="font-bold">Success!</p>
+                    <p>Your expert advisor will be in touch within 1 business day.</p>
                 </div>
 
-                <div>
-                    <input type="text" id="name" name="Name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Full Name">
-                </div>
-                <div>
-                    <input type="email" id="email" name="Email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Email Address">
-                </div>
-                <div>
-                    <input type="tel" id="phone" name="Phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Phone Number (Optional)">
-                </div>
-                <div>
-                    <textarea id="message" name="Message" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Tell us more about your goal (e.g., first home buyer, specific health condition concern, etc.)."></textarea>
-                </div>
+                <!-- FORM SUBMISSION CONFIGURED FOR WEB3FORMS -->
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <!-- ACCESS KEY ADDED HERE -->
+                    <input type="hidden" name="access_key" value="7b9c35ac-fafa-401e-9b9b-0e859e014f56">
+                    <input type="hidden" name="subject" id="form-subject" value="New Contact Inquiry from WiCalculate Website (White/Gold)">
+                    <input type="hidden" name="redirect" value="[Your Current URL]?submitted=true">
+                    
+                    <!-- OPTIMIZATION 4: Add lead qualification dropdown -->
+                    <div>
+                        <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">I'm interested in...</label>
+                        <select id="interest" name="Primary Interest" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 shadow-sm">
+                            <option value="" disabled selected>Select your main area of interest</option>
+                            <option value="Mortgage / Home Loan">Mortgage / Home Loan (Refinancing or Buying)</option>
+                            <option value="Health / Risk Insurance">Health / Risk Insurance (Life, Health, Trauma)</option>
+                            <option value="KiwiSaver / Wealth">KiwiSaver / Wealth Management</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                        </select>
+                    </div>
 
-                <button type="submit" id="submit-btn" class="w-full px-6 py-3 btn-gold-gradient rounded-lg shadow-md">
-                    Request a Call
-                </button>
-            </form>
+                    <div>
+                        <input type="text" id="name" name="Name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Full Name">
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="Email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Email Address">
+                    </div>
+                    <div>
+                        <input type="tel" id="phone" name="Phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Phone Number (Optional)">
+                    </div>
+                    <div>
+                        <textarea id="message" name="Message" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-[#B8860B] focus:border-[#B8860B] bg-white text-gray-900 placeholder-gray-400 shadow-sm" placeholder="Tell us more about your goal (e.g., first home buyer, specific health condition concern, etc.)."></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn" class="w-full px-6 py-3 btn-gold-gradient rounded-lg shadow-md">
+                        Request a Call
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- Footer (Black Background) -->
-<footer class="bg-gray-900 text-gray-400 py-8">
-    <div class="max-w-6xl mx-auto px-4 text-center text-xs border-t border-yellow-900/50 pt-6">
-        <p>&copy; 2025 WiCalculate Financial Advisory. All Rights Reserved. FSPR Licensed Advisor.</p>
-        <p class="mt-2">Disclaimer: All rates and figures are estimates. Consult a licensed professional for personalized advice.</p>
-    </div>
-</footer>
+    <!-- Footer (Black Background) -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-xs border-t border-yellow-900/50 pt-6">
+            <p>&copy; 2025 WiCalculate Financial Advisory. All Rights Reserved. FSPR Licensed Advisor.</p>
+            <p class="mt-2">Disclaimer: All rates and figures are estimates. Consult a licensed professional for personalized advice.</p>
+        </div>
+    </footer>
 
-<!-- JavaScript for Calculator Logic, Mobile Menu, and CTA Linking -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const loanAmountInput = document.getElementById('loanAmount');
-        const depositAmountInput = document.getElementById('depositAmount');
-        const annualRateInput = document.getElementById('annualInterestRate');
-        const termYearsInput = document.getElementById('loanTermYears');
-        const calculateBtn = document.getElementById('calculate-btn');
+    <!-- JavaScript for Calculator Logic, Mobile Menu, and CTA Linking -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loanAmountInput = document.getElementById('loanAmount');
+            const depositAmountInput = document.getElementById('depositAmount');
+            const annualRateInput = document.getElementById('annualInterestRate');
+            const termYearsInput = document.getElementById('loanTermYears');
+            const calculateBtn = document.getElementById('calculate-btn');
+            
+            const monthlyPaymentOutput = document.getElementById('monthlyPayment');
+            const totalInterestOutput = document.getElementById('totalInterest');
+            const totalCostOutput = document.getElementById('totalCost');
+            const principalOutput = document.getElementById('principal');
+            
+            // New Contact Form Elements
+            const contactFormCard = document.getElementById('contact-form-card');
+            const interestSelect = document.getElementById('interest');
+            const submitBtn = document.getElementById('submit-btn');
+            const formSubjectInput = document.getElementById('form-subject');
 
-        const monthlyPaymentOutput = document.getElementById('monthlyPayment');
-        const totalInterestOutput = document.getElementById('totalInterest');
-        const totalCostOutput = document.getElementById('totalCost');
-        const principalOutput = document.getElementById('principal');
-
-        // New Contact Form Elements
-        const contactFormCard = document.getElementById('contact-form-card');
-        const interestSelect = document.getElementById('interest');
-        const submitBtn = document.getElementById('submit-btn');
-        const formSubjectInput = document.getElementById('form-subject');
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuButton.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
-        });
-
-        // Format number to NZD currency
-        const formatter = new Intl.NumberFormat('en-NZ', {
-            style: 'currency',
-            currency: 'NZD',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        });
-
-        // Function to perform the calculation
-        const calculateMortgage = () => {
-            const propertyValue = parseFloat(loanAmountInput.value) || 0;
-            const deposit = parseFloat(depositAmountInput.value) || 0;
-            const rate = parseFloat(annualRateInput.value) || 0;
-            const termYears = parseFloat(termYearsInput.value) || 0;
-
-            // Calculate the net amount financed (P)
-            const principal = propertyValue - deposit;
-
-            // Monthly interest rate (r)
-            const monthlyRate = (rate / 100) / 12;
-
-            // Total number of payments (n)
-            const numberPayments = termYears * 12;
-
-            let monthlyPayment = 0;
-            let totalInterest = 0;
-            let totalRepaid = 0;
-
-            if (principal <= 0) {
-                monthlyPayment = 0;
-                totalInterest = 0;
-                totalRepaid = 0;
-            } else if (monthlyRate > 0 && numberPayments > 0) {
-                // M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
-                const numerator = monthlyRate * Math.pow((1 + monthlyRate), numberPayments);
-                const denominator = Math.pow((1 + monthlyRate), numberPayments) - 1;
-                monthlyPayment = principal * (numerator / denominator);
-
-                totalRepaid = monthlyPayment * numberPayments;
-                totalInterest = totalRepaid - principal;
-            } else if (numberPayments > 0) {
-                // Case: 0% interest rate
-                monthlyPayment = principal / numberPayments;
-                totalRepaid = principal;
-                totalInterest = 0;
-            }
-
-            // Update results in the DOM
-            principalOutput.textContent = formatter.format(principal);
-            monthlyPaymentOutput.textContent = formatter.format(monthlyPayment);
-            totalInterestOutput.textContent = formatter.format(totalInterest);
-            totalCostOutput.textContent = formatter.format(totalRepaid);
-        };
-
-        // Event listeners for recalculation
-        calculateBtn.addEventListener('click', calculateMortgage);
-
-        // Also recalculate on any input change for responsiveness
-        [loanAmountInput, depositAmountInput, annualRateInput, termYearsInput].forEach(input => {
-            input.addEventListener('input', calculateMortgage);
-        });
-
-        // Initial calculation on page load
-        calculateMortgage();
-
-        // --- Form Submission Success Handling ---
-        const formElement = document.getElementById('contact-form');
-        const successMessageDiv = document.getElementById('form-success-message');
-
-        // Set the 'redirect' value dynamically to the current URL plus a parameter
-        const redirectInput = formElement.querySelector('input[name="redirect"]');
-        if (redirectInput) {
-            redirectInput.value = window.location.href.split('?')[0] + '?submitted=true';
-        }
-
-        // Check URL for submission parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('submitted') === 'true') {
-            // Show success message
-            successMessageDiv.classList.remove('hidden');
-            // Hide the form itself
-            formElement.classList.add('hidden');
-            // Scroll to the contact section to show the success message
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Also handle mobile menu closing when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
             });
+
+            // Format number to NZD currency
+            const formatter = new Intl.NumberFormat('en-NZ', {
+                style: 'currency',
+                currency: 'NZD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Function to perform the calculation
+            const calculateMortgage = () => {
+                const propertyValue = parseFloat(loanAmountInput.value) || 0;
+                const deposit = parseFloat(depositAmountInput.value) || 0;
+                const rate = parseFloat(annualRateInput.value) || 0;
+                const termYears = parseFloat(termYearsInput.value) || 0;
+
+                // Calculate the net amount financed (P)
+                const principal = propertyValue - deposit;
+
+                // Monthly interest rate (r)
+                const monthlyRate = (rate / 100) / 12;
+
+                // Total number of payments (n)
+                const numberPayments = termYears * 12;
+
+                let monthlyPayment = 0;
+                let totalInterest = 0;
+                let totalRepaid = 0;
+
+                if (principal <= 0) {
+                    monthlyPayment = 0;
+                    totalInterest = 0;
+                    totalRepaid = 0;
+                } else if (monthlyRate > 0 && numberPayments > 0) {
+                    // M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
+                    const numerator = monthlyRate * Math.pow((1 + monthlyRate), numberPayments);
+                    const denominator = Math.pow((1 + monthlyRate), numberPayments) - 1;
+                    monthlyPayment = principal * (numerator / denominator);
+
+                    totalRepaid = monthlyPayment * numberPayments;
+                    totalInterest = totalRepaid - principal;
+                } else if (numberPayments > 0) {
+                    // Case: 0% interest rate
+                    monthlyPayment = principal / numberPayments;
+                    totalRepaid = principal;
+                    totalInterest = 0;
+                }
+
+                // Update results in the DOM
+                principalOutput.textContent = formatter.format(principal);
+                monthlyPaymentOutput.textContent = formatter.format(monthlyPayment);
+                totalInterestOutput.textContent = formatter.format(totalInterest);
+                totalCostOutput.textContent = formatter.format(totalRepaid);
+            };
+
+            // Event listeners for recalculation
+            calculateBtn.addEventListener('click', calculateMortgage);
+            
+            // Also recalculate on any input change for responsiveness
+            [loanAmountInput, depositAmountInput, annualRateInput, termYearsInput].forEach(input => {
+                input.addEventListener('input', calculateMortgage);
+            });
+
+            // Initial calculation on page load
+            calculateMortgage();
+            
+            // --- Form Submission Success Handling ---
+            const formElement = document.getElementById('contact-form');
+            const successMessageDiv = document.getElementById('form-success-message');
+            
+            // Set the 'redirect' value dynamically to the current URL plus a parameter
+            const redirectInput = formElement.querySelector('input[name="redirect"]');
+            if (redirectInput) {
+                redirectInput.value = window.location.href.split('?')[0] + '?submitted=true';
+            }
+
+            // Check URL for submission parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('submitted') === 'true') {
+                // Show success message
+                successMessageDiv.classList.remove('hidden');
+                // Hide the form itself
+                formElement.classList.add('hidden');
+                // Scroll to the contact section to show the success message
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Also handle mobile menu closing when clicking a link
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // --- OPTIMIZATION 4: Pre-select interest based on scroll anchor ---
+            const updateFormBasedOnAnchor = () => {
+                const anchor = window.location.hash;
+                let selectedValue = '';
+                let buttonText = 'Request a Call';
+
+                if (anchor === '#contact-mortgage') {
+                    selectedValue = 'Mortgage / Home Loan';
+                    buttonText = 'Connect with a Mortgage Advisor';
+                    formSubjectInput.value = "Mortgage Lead Inquiry (Quick Connect)";
+                } else if (anchor === '#contact-insurance') {
+                    selectedValue = 'Health / Risk Insurance';
+                    buttonText = 'Connect with a Health Advisor';
+                    formSubjectInput.value = "Health Insurance Lead Inquiry (Quick Connect)";
+                } else if (anchor === '#contact-general') {
+                     selectedValue = 'KiwiSaver / Wealth';
+                     buttonText = 'Connect with a Wealth Advisor';
+                     formSubjectInput.value = "Wealth Management Lead Inquiry (Quick Connect)";
+                } else {
+                    selectedValue = '';
+                    formSubjectInput.value = "New Contact Inquiry from WiCalculate Website (White/Gold)";
+                }
+                
+                // Only change if a specific anchor was hit
+                if (selectedValue) {
+                    interestSelect.value = selectedValue;
+                    submitBtn.textContent = buttonText;
+                    // Scroll smoothly to the form for better UX
+                    contactFormCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+
+            // Run on load and whenever the hash changes (e.g., clicking a CTA)
+            updateFormBasedOnAnchor();
+            window.addEventListener('hashchange', updateFormBasedOnAnchor);
+            
+            // Also update button text based on selection manually
+            interestSelect.addEventListener('change', () => {
+                const selected = interestSelect.value;
+                if (selected === 'Mortgage / Home Loan') {
+                    submitBtn.textContent = 'Connect with a Mortgage Advisor';
+                } else if (selected === 'Health / Risk Insurance') {
+                    submitBtn.textContent = 'Connect with a Health Advisor';
+                } else if (selected === 'KiwiSaver / Wealth') {
+                    submitBtn.textContent = 'Connect with a Wealth Advisor';
+                } else {
+                    submitBtn.textContent = 'Request a Call';
+                }
+            });
+
         });
-
-        // --- OPTIMIZATION 4: Pre-select interest based on scroll anchor ---
-        const updateFormBasedOnAnchor = () => {
-            const anchor = window.location.hash;
-            let selectedValue = '';
-            let buttonText = 'Request a Call';
-
-            if (anchor === '#contact-mortgage') {
-                selectedValue = 'Mortgage / Home Loan';
-                buttonText = 'Connect with a Mortgage Advisor';
-                formSubjectInput.value = "Mortgage Lead Inquiry (Quick Connect)";
-            } else if (anchor === '#contact-insurance') {
-                selectedValue = 'Health / Risk Insurance';
-                buttonText = 'Connect with a Health Advisor';
-                formSubjectInput.value = "Health Insurance Lead Inquiry (Quick Connect)";
-            } else if (anchor === '#contact-general') {
-                selectedValue = 'KiwiSaver / Wealth';
-                buttonText = 'Connect with a Wealth Advisor';
-                formSubjectInput.value = "Wealth Management Lead Inquiry (Quick Connect)";
-            } else {
-                selectedValue = '';
-                formSubjectInput.value = "New Contact Inquiry from WiCalculate Website (White/Gold)";
-            }
-
-            // Only change if a specific anchor was hit
-            if (selectedValue) {
-                interestSelect.value = selectedValue;
-                submitBtn.textContent = buttonText;
-                // Scroll smoothly to the form for better UX
-                contactFormCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        };
-
-        // Run on load and whenever the hash changes (e.g., clicking a CTA)
-        updateFormBasedOnAnchor();
-        window.addEventListener('hashchange', updateFormBasedOnAnchor);
-
-        // Also update button text based on selection manually
-        interestSelect.addEventListener('change', () => {
-            const selected = interestSelect.value;
-            if (selected === 'Mortgage / Home Loan') {
-                submitBtn.textContent = 'Connect with a Mortgage Advisor';
-            } else if (selected === 'Health / Risk Insurance') {
-                submitBtn.textContent = 'Connect with a Health Advisor';
-            } else if (selected === 'KiwiSaver / Wealth') {
-                submitBtn.textContent = 'Connect with a Wealth Advisor';
-            } else {
-                submitBtn.textContent = 'Request a Call';
-            }
-        });
-
-    });
-</script>
+    </script>
 
 </body>
 </html>
